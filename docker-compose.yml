@@ -1,15 +1,15 @@
-version: "3.8"
+version: '3.8'
 
 services:
   mysql:
-    image: mysql:8.0
+    image: docker.m.daocloud.io/library/mysql:8.0
     container_name: mori-mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root123456}
       MYSQL_DATABASE: mori_market
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
@@ -32,7 +32,7 @@ services:
       JWT_SECRET: ${JWT_SECRET:-scy-mori-jwt-secret-2026-production-key-32chars}
       JWT_EXPIRES_IN: 7d
     ports:
-      - "3000:3000"
+      - "3001:3000"
     depends_on:
       mysql:
         condition: service_healthy

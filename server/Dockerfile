@@ -1,15 +1,15 @@
-FROM node:20-alpine AS builder
+FROM docker.m.daocloud.io/library/node:20-alpine AS builder
 
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+RUN npm install --registry=https://registry.npmmirror.com
 
 COPY . .
-RUN npm run build
 RUN npx prisma generate
+RUN npm run build
 
-FROM node:20-alpine
+FROM docker.m.daocloud.io/library/node:20-alpine
 
 WORKDIR /app
 
