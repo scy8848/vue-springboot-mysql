@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+*.log
+.idea
+.vscode
+coverage
+*.tsbuildinfo
+client/vite.config.js
+client/vite.config.d.ts
+server/uploads/
