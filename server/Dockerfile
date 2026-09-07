@@ -1,5 +1,7 @@
 FROM docker.m.daocloud.io/library/node:20-alpine AS builder
 
+ARG CACHEBUST=20260907123000
+
 WORKDIR /app
 
 COPY package*.json ./
